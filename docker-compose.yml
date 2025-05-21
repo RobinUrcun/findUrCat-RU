@@ -2,7 +2,9 @@ version: "3.8"
 
 services:
   php:
-    image: php:8.2-cli
+    build:
+      context: .
+      dockerfile: Dockerfile.php
     container_name: laravel-php
     working_dir: /var/www
     volumes:
@@ -10,6 +12,8 @@ services:
     ports:
       - "8000:8000"
     command: php artisan serve --host=0.0.0.0 --port=8000
+    depends_on:
+      - mysql
 
   node:
     image: node:18
@@ -18,3 +22,20 @@ services:
     volumes:
       - ./laravel-app:/var/www
     command: npm run watch
+
+  mysql:
+    image: mysql:8.0
+    container_name: laravel-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: laravel
+      MYSQL_USER: laravel
+      MYSQL_PASSWORD: laravel
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+volumes:
+  mysql-data:
