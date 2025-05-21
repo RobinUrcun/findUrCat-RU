@@ -1,13 +1,15 @@
 <template>
-  <Banniere title="Find My Cat" />
+    <section class="homeSection">
+        <h1>Find Your Cat</h1>
+        <WelcomeText />
+    </section>
 </template>
 
 <script>
-import Banniere from "../../components/banniere/Banniere.vue";
-
+import WelcomeText from "../../components/welcomeText/WelcomeText.vue";
 export default {
-  components: {
-    Banniere,
-  },
+    components: {
+        WelcomeText,
+    },
 };
 </script>

@@ -1,5 +1,5 @@
-
-@import "layout/header";
-@import "base/base";
-@import "pages/home/_banniere.scss";
-@import 'base/fonts';
+@import "./layout/header";
+@import "./base/base";
+@import "./base/fonts";
+@import "./pages/home/home";
+@import "./components/welcomText/welcomText";
