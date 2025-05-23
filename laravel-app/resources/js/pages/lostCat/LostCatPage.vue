@@ -1,7 +1,7 @@
 <template>
-    <section class="lostCatSection">
-        <h1>Find Your Cat</h1>
-    </section>
+  <section class="lostCatSection">
+    <h1>Chats perdus</h1>
+  </section>
 </template>
 
 <script>

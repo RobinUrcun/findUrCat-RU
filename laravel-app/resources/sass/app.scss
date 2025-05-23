@@ -1,5 +1,31 @@
+    // LAYOUTS // 
+
 @import "./layout/header";
+
+    // BASES //
 @import "./base/base";
 @import "./base/fonts";
+
+    // PAGES // 
+
+        // HOME // 
 @import "./pages/home/home";
+
+        // CREATE ACCOMPTE // 
+@import "./pages/auth/createAccompte/createAccompte";
+
+        // LOGIN // 
+@import "./pages/auth/login/login";
+
+        // FORM //
+@import "./pages/auth/form";
+
+        // ADD CAT //
+@import "./pages/addCat/addCat";
+
+        // LOST CAT // 
+@import "./pages/lostCat/lostCat";
+
+        // COMPONENTS //
 @import "./components/welcomText/welcomText";
+@import "./components/inputs/inputs";

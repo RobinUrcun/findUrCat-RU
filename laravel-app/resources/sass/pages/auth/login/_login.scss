@@ -1,0 +1,27 @@
+.loginSection{
+    background-image: url("/assets/images/loginBg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: calc(100vh - 130px);
+    padding-top: 130px;
+    position: relative;
+}
+
+.form.loginForm{
+    min-width: 400px;
+    bottom: 30%;
+    right: 60%;
+    left: 10%;
+    button{
+        background-image: none;
+        background-color: #EA4C89;
+        &:hover{
+            background-image: none;
+
+            background-color: #F082AC;
+
+        }
+    }
+
+}
+

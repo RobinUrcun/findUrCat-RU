@@ -5,6 +5,7 @@
   left: 50%;
   transform: translateX(-50%);
   text-wrap: nowrap;
+  z-index: 99;
 }
 .headerWrapper .header {
   background-color: rgba(135, 152, 133, 0.8);
@@ -60,6 +61,96 @@ body h1 {
   padding-top: 130px;
 }
 
+.createAcccompteSection {
+  background-image: url("/assets/images/createAccompteBg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: calc(100vh - 130px);
+  padding-top: 130px;
+  position: relative;
+}
+
+.loginSection {
+  background-image: url("/assets/images/loginBg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: calc(100vh - 130px);
+  padding-top: 130px;
+  position: relative;
+}
+
+.form.loginForm {
+  min-width: 400px;
+  bottom: 30%;
+  right: 60%;
+  left: 10%;
+}
+.form.loginForm button {
+  background-image: none;
+  background-color: #EA4C89;
+}
+.form.loginForm button:hover {
+  background-image: none;
+  background-color: #F082AC;
+}
+
+.form {
+  padding: 50px;
+  position: absolute;
+  bottom: 10%;
+  right: 10%;
+  background-color: rgba(0, 0, 0, 0.202);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+.form button {
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 20px auto 0 auto;
+  background-image: linear-gradient(-180deg, #37AEE2 0%, #1E96C8 100%);
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  display: flex;
+  font-size: 16px;
+  justify-content: center;
+  padding: 1rem 1.75rem;
+  text-decoration: none;
+  border: 0;
+  cursor: pointer;
+  -moz-user-select: none;
+       user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+.form button:hover {
+  background-image: linear-gradient(-180deg, #1D95C9 0%, #17759C 100%);
+}
+
+.addCatSection {
+  background-image: url("/assets/images/addCatBg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: calc(100vh - 130px);
+  padding-top: 130px;
+}
+.addCatSection .greyBtn {
+  background-image: linear-gradient(-180deg, #5e7077 0%, #7d8c93 100%);
+}
+.addCatSection .greyBtn:hover {
+  background-image: linear-gradient(-180deg, #879397 0%, #aebbc1 100%);
+}
+
+.lostCatSection {
+  background-image: url("/assets/images/lostCatBg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: calc(100vh - 130px);
+  padding-top: 130px;
+}
+
 .welcomTextWrapper {
   position: absolute;
   width: 50%;
@@ -77,4 +168,27 @@ body h1 {
 .welcomTextWrapper li {
   font-size: 22px;
   font-weight: 500;
+}
+
+.inputForm {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+}
+.inputForm label {
+  flex: 1;
+  color: rgb(47, 46, 46);
+  font-size: 18px;
+  font-weight: 500;
+  text-wrap: nowrap;
+}
+.inputForm input {
+  padding: 5px;
+  flex: 2;
+  border-radius: 5px;
+  border: none;
+  height: -moz-fit-content;
+  height: fit-content;
 }

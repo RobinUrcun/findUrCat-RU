@@ -1,0 +1,14 @@
+.addCatSection{
+    background-image: url("/assets/images/addCatBg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: calc(100vh - 130px);
+    padding-top: 130px;
+
+    .greyBtn{
+        background-image: linear-gradient(-180deg, #5e7077 0%, #7d8c93 100%);
+        &:hover{
+            background-image: linear-gradient(-180deg, #879397 0%, #aebbc1 100%);
+       }
+    }
+}
