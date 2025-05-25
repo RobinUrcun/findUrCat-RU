@@ -150,6 +150,22 @@ body h1 {
   min-height: calc(100vh - 130px);
   padding-top: 130px;
 }
+.lostCatSection .lostCatWrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 40px 20px;
+  gap: 20px;
+  justify-content: center;
+}
+
+.departementSearchSection {
+  background-image: url("/assets/images/departementBg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: calc(100vh - 130px);
+  padding-top: 130px;
+}
 
 .welcomTextWrapper {
   position: absolute;
@@ -191,4 +207,17 @@ body h1 {
   border: none;
   height: -moz-fit-content;
   height: fit-content;
+}
+
+.catCard {
+  width: 220px;
+  overflow: hidden;
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+}
+.catCard img {
+  width: 220px;
+  -o-object-fit: contain;
+     object-fit: contain;
 }

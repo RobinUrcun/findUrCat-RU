@@ -1,31 +1,35 @@
-    // LAYOUTS // 
+// LAYOUTS //
 
 @import "./layout/header";
 
-    // BASES //
+// BASES //
 @import "./base/base";
 @import "./base/fonts";
 
-    // PAGES // 
+// PAGES //
 
-        // HOME // 
+// HOME //
 @import "./pages/home/home";
 
-        // CREATE ACCOMPTE // 
+// CREATE ACCOMPTE //
 @import "./pages/auth/createAccompte/createAccompte";
 
-        // LOGIN // 
+// LOGIN //
 @import "./pages/auth/login/login";
 
-        // FORM //
+// FORM //
 @import "./pages/auth/form";
 
-        // ADD CAT //
+// ADD CAT //
 @import "./pages/addCat/addCat";
 
-        // LOST CAT // 
+// LOST CAT //
 @import "./pages/lostCat/lostCat";
 
-        // COMPONENTS //
+// DEPARTEMENTS PAGE //
+@import "./pages/departementsPage/departementsPage";
+
+// COMPONENTS //
 @import "./components/welcomText/welcomText";
 @import "./components/inputs/inputs";
+@import "./components/cards/catCard";

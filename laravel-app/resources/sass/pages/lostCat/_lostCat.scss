@@ -1,8 +1,15 @@
-.lostCatSection{
+.lostCatSection {
     background-image: url("/assets/images/lostCatBg.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     min-height: calc(100vh - 130px);
     padding-top: 130px;
-
+    .lostCatWrapper {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 40px 20px;
+        gap: 20px;
+        justify-content: center;
+    }
 }
