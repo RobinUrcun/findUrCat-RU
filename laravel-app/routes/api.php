@@ -19,5 +19,7 @@ Route::controller(ManageCat::class)->group(function () {
 });
 
 Route::controller(DisplayCat::class)->group(function () {
+    Route::get('/getAllCats/{departement}', "getAllCatsByDepartement");
+
     Route::get('/getAllCats', "getAllCats");
 });

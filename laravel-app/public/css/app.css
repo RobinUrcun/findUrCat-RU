@@ -221,3 +221,19 @@ body h1 {
   -o-object-fit: contain;
      object-fit: contain;
 }
+
+.searchCatWrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 40px 20px;
+  gap: 20px;
+  justify-content: center;
+}
+
+.searchBar {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

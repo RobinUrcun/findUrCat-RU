@@ -13,4 +13,15 @@ class DisplayCat extends Controller
             Cat::with('user')->get()
         );
     }
+
+    public function getAllCatsByDepartement($departement)
+    {
+
+        $catList = Cat::with('user')->where('departement', (int) $departement)->get();
+
+
+        return response()->json([
+            "catList" => $catList,
+        ]);
+    }
 }
