@@ -192,12 +192,14 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
   },
   methods: {
     fetchData: function fetchData(e) {
+      var _this = this;
       return _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-        var fetchData;
+        var response, data;
         return _regeneratorRuntime().wrap(function _callee$(_context) {
           while (1) switch (_context.prev = _context.next) {
             case 0:
-              _context.next = 2;
+              _context.prev = 0;
+              _context.next = 3;
               return fetch("/api/login", {
                 method: "POST",
                 headers: {
@@ -210,18 +212,36 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
                 }),
                 credentials: "include"
               });
-            case 2:
-              fetchData = _context.sent;
-              if (fetchData.ok) {
-                console.log("ok");
-              } else {
-                console.log("pas ok");
+            case 3:
+              response = _context.sent;
+              if (!response.ok) {
+                _context.next = 14;
+                break;
               }
-            case 4:
+              _context.next = 7;
+              return response.json();
+            case 7:
+              data = _context.sent;
+              console.log(data);
+              _this.$toast.success("Connection reussie");
+              localStorage.setItem("authToken", data.access_token);
+              _this.$router.push("/");
+              _context.next = 15;
+              break;
+            case 14:
+              _this.$toast.error("Identifiants incorrects");
+            case 15:
+              _context.next = 20;
+              break;
+            case 17:
+              _context.prev = 17;
+              _context.t0 = _context["catch"](0);
+              _this.$toast.error("Identifiants incorrects");
+            case 20:
             case "end":
               return _context.stop();
           }
-        }, _callee);
+        }, _callee, null, [[0, 17]]);
       }))();
     }
   }

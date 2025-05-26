@@ -21,10 +21,18 @@ class AuthController extends Controller
 
         if (Auth::attempt($request->validated())) {
 
-            $request->session()->regenerate();
-            return response()->json(['message' => "Connection reussie"]);
+            $user = Auth::user();
+            $token = $user->createToken('token_name')->plainTextToken;
+            return response()->json([
+                'access_token' => $token,
+                'token_type' => 'Bearer',
+                'user' => $user,
+            ]);
+            // return response()->json(['message' => "Connection reussie"]);
         } else {
-            return response()->json(['message' => "Connection refusée"]);
+
+
+            return response()->json(['message' => "Connection refusée"], 401);
         };
     }
 }
