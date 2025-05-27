@@ -1210,7 +1210,7 @@ var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "filterSection"
+    staticClass: "filterSection d-flex flex-row justify-space-around"
   }, [_c("div", {
     staticClass: "filterWrapper"
   }, [_c("v-switch", {

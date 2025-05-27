@@ -1,4 +1,10 @@
 .searchCatSection {
     min-height: 100vh;
     padding-top: 130px;
+
+    .filterSection {
+        .filterWrapper {
+            width: 25%;
+        }
+    }
 }

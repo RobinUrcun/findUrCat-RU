@@ -113,6 +113,9 @@ body h1 {
   min-height: 100vh;
   padding-top: 130px;
 }
+.searchCatSection .filterSection .filterWrapper {
+  width: 25%;
+}
 
 .welcomTextWrapper {
   position: absolute;

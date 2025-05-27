@@ -1,5 +1,5 @@
 <template>
-    <div class="filterSection">
+    <div class="filterSection d-flex flex-row justify-space-around">
         <div class="filterWrapper">
             <v-switch v-model="switcher.name" label="Nom :"></v-switch>
             <div v-if="switcher.name" class="filterField">
