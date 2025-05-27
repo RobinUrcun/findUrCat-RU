@@ -6,6 +6,7 @@ import CreateAccompte from "../pages/auth/createAccompte/CreateAccompte";
 import LoginPage from "../pages/auth/login/LoginPage";
 import CreateCat from "../pages/createCat/CreateCat.vue";
 import DepartementSearch from "../pages/departementSearch/DepartementSearch.vue";
+import SearchCat from "../pages/searchCat/SearchCat.vue"
 
 Vue.use(Router);
 
@@ -41,6 +42,11 @@ export default new Router({
             path: "/departements",
             name: "departements",
             component: DepartementSearch,
+        },       
+        {
+            path: "/rechercher_un_chat",
+            name: "rechercher_un_chat",
+            component: SearchCat,
         },
     ],
 });

@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateAccompteFilter;
 use App\Http\Requests\LoginFilter;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
 
 class AuthController extends Controller
 {
@@ -28,11 +30,15 @@ class AuthController extends Controller
                 'token_type' => 'Bearer',
                 'user' => $user,
             ]);
-            // return response()->json(['message' => "Connection reussie"]);
         } else {
 
 
             return response()->json(['message' => "Connection refusée"], 401);
         };
+    }
+    public function logout(Request $request)
+    {
+        $request->user()->currentAccessToken()->delete();
+        return response()->json(['message' => 'Déconnecté']);
     }
 }

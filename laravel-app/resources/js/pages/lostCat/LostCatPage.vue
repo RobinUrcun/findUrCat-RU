@@ -1,46 +1,36 @@
 <template>
-    <section class="lostCatSection">
-        <h1>Chats perdus</h1>
-        <div class="lostCatWrapper">
-            <CatCard
-                v-for="cat in catList"
-                :name="cat.name"
-                :color="cat.color"
-                :departement="cat.departement"
-                :key="cat.id"
-                :proprietaire="cat.user.name"
-            />
-        </div>
-    </section>
+  <section class="lostCatSection">
+    <h1>Chats perdus</h1>
+    <div class="lostCatWrapper">
+      <CatCard
+        v-for="cat in getCatList"
+        :name="cat.name"
+        :color="cat.color"
+        :departement="cat.departement"
+        :key="cat.id"
+        :proprietaire="cat.user.name"
+      />
+    </div>
+  </section>
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
 import CatCard from "../../components/cards/CatCard.vue";
 
 export default {
-    components: {
-        CatCard,
-    },
-    data() {
-        return {
-            catList: [],
-        };
-    },
-    async mounted() {
-        const response = await fetch("/api/getAllCats", {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                Accept: "application/json",
-            },
-        });
+  components: {
+    CatCard,
+  },
+  computed: {
+    ...mapGetters(["getCatList"]),
+  },
+  methods: {
+    ...mapActions(["fetchCatList"]),
+  },
 
-        if (response.ok) {
-            const result = await response.json();
-
-            this.catList = result;
-        } else {
-        }
-    },
+  mounted() {
+    this.fetchCatList();
+  },
 };
 </script>

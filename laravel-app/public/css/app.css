@@ -57,7 +57,7 @@ body h1 {
   background-image: url("/assets/images/homeBg.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  min-height: calc(100vh - 130px);
+  min-height: 100vh;
   padding-top: 130px;
 }
 
@@ -65,7 +65,7 @@ body h1 {
   background-image: url("/assets/images/createAccompteBg.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  min-height: calc(100vh - 130px);
+  min-height: 100vh;
   padding-top: 130px;
   position: relative;
 }
@@ -74,7 +74,7 @@ body h1 {
   background-image: url("/assets/images/loginBg.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  min-height: calc(100vh - 130px);
+  min-height: 100vh;
   padding-top: 130px;
   position: relative;
 }
@@ -133,7 +133,7 @@ body h1 {
   background-image: url("/assets/images/addCatBg.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  min-height: calc(100vh - 130px);
+  min-height: 100vh;
   padding-top: 130px;
 }
 .addCatSection .greyBtn {
@@ -147,7 +147,7 @@ body h1 {
   background-image: url("/assets/images/lostCatBg.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  min-height: calc(100vh - 130px);
+  min-height: 100vh;
   padding-top: 130px;
 }
 .lostCatSection .lostCatWrapper {
@@ -163,7 +163,7 @@ body h1 {
   background-image: url("/assets/images/departementBg.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  min-height: calc(100vh - 130px);
+  min-height: 100vh;
   padding-top: 130px;
 }
 
