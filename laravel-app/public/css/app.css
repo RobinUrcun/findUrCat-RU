@@ -45,7 +45,7 @@ body {
   font-family: "Inter", sans-serif;
 }
 body h1 {
-  color: white;
+  color: rgb(64, 135, 246);
   font-family: "Dancing Script", cursive;
   font-weight: 700;
   font-size: 7vw;
@@ -60,93 +60,38 @@ body h1 {
   min-height: 100vh;
   padding-top: 130px;
 }
+.homeSection h1 {
+  color: white;
+}
 
 .createAcccompteSection {
-  background-image: url("/assets/images/createAccompteBg.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
   min-height: 100vh;
   padding-top: 130px;
   position: relative;
 }
 
 .loginSection {
-  background-image: url("/assets/images/loginBg.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
   min-height: 100vh;
   padding-top: 130px;
-  position: relative;
-}
-
-.form.loginForm {
-  min-width: 400px;
-  bottom: 30%;
-  right: 60%;
-  left: 10%;
-}
-.form.loginForm button {
-  background-image: none;
-  background-color: #EA4C89;
-}
-.form.loginForm button:hover {
-  background-image: none;
-  background-color: #F082AC;
 }
 
 .form {
-  padding: 50px;
-  position: absolute;
-  bottom: 10%;
-  right: 10%;
+  margin: auto;
+  padding: 50px 50px 20px 50px;
+  max-width: 600px;
   background-color: rgba(0, 0, 0, 0.202);
   border-radius: 20px;
   display: flex;
   flex-direction: column;
   row-gap: 20px;
 }
-.form button {
-  width: -moz-fit-content;
-  width: fit-content;
-  margin: 20px auto 0 auto;
-  background-image: linear-gradient(-180deg, #37AEE2 0%, #1E96C8 100%);
-  border-radius: 0.5rem;
-  box-sizing: border-box;
-  color: #FFFFFF;
-  display: flex;
-  font-size: 16px;
-  justify-content: center;
-  padding: 1rem 1.75rem;
-  text-decoration: none;
-  border: 0;
-  cursor: pointer;
-  -moz-user-select: none;
-       user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-}
-.form button:hover {
-  background-image: linear-gradient(-180deg, #1D95C9 0%, #17759C 100%);
-}
 
 .addCatSection {
-  background-image: url("/assets/images/addCatBg.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
   min-height: 100vh;
   padding-top: 130px;
 }
-.addCatSection .greyBtn {
-  background-image: linear-gradient(-180deg, #5e7077 0%, #7d8c93 100%);
-}
-.addCatSection .greyBtn:hover {
-  background-image: linear-gradient(-180deg, #879397 0%, #aebbc1 100%);
-}
 
 .lostCatSection {
-  background-image: url("/assets/images/lostCatBg.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
   min-height: 100vh;
   padding-top: 130px;
 }
@@ -160,9 +105,11 @@ body h1 {
 }
 
 .departementSearchSection {
-  background-image: url("/assets/images/departementBg.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
+  min-height: 100vh;
+  padding-top: 130px;
+}
+
+.searchCatSection {
   min-height: 100vh;
   padding-top: 130px;
 }
@@ -236,4 +183,80 @@ body h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.mainButton {
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 20px auto 0 auto;
+  background-image: linear-gradient(-180deg, rgb(64, 135, 246) 0%, #1e96c8 100%);
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  color: #ffffff;
+  display: flex;
+  font-size: 16px;
+  justify-content: center;
+  padding: 1rem 1.75rem;
+  text-decoration: none;
+  border: 0;
+  cursor: pointer;
+  -moz-user-select: none;
+       user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+.mainButton:hover {
+  background-image: linear-gradient(-180deg, rgb(64, 135, 246) 0%, #17759c 100%);
+}
+
+.radioBtn input[type=radio]:focus {
+  outline: 0;
+  border-color: #2260ff;
+  box-shadow: 0 0 0 4px #b5c9fc;
+}
+
+.radioBtn {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+  justify-content: center;
+}
+
+.radioBtn input[type=radio] {
+  clip: rect(0 0 0 0);
+  clip-path: inset(100%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.radioBtn input[type=radio]:checked + span {
+  box-shadow: 0 0 0 0.0625em #0043ed;
+  background-color: #dee7ff;
+  z-index: 1;
+  color: #0043ed;
+}
+
+.radioBtn label span {
+  display: block;
+  cursor: pointer;
+  background-color: #fff;
+  padding: 0.375em 0.75em;
+  position: relative;
+  margin-left: 0.0625em;
+  box-shadow: 0 0 0 0.0625em #b5bfd9;
+  letter-spacing: 0.05em;
+  color: #3e4963;
+  text-align: center;
+  transition: background-color 0.5s ease;
+}
+
+.radioBtn label:first-child span {
+  border-radius: 0.375em 0 0 0.375em;
+}
+
+.radioBtn label:last-child span {
+  border-radius: 0 0.375em 0.375em 0;
 }

@@ -5,66 +5,58 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     state: {
-        token : localStorage.getItem('authToken') ? localStorage.getItem('authToken') : null,
-        user : localStorage.getItem('user')? JSON.parse(localStorage.getItem('user')) : null,
-        catList: []
+        token: localStorage.getItem("authToken")
+            ? localStorage.getItem("authToken")
+            : null,
+        user: localStorage.getItem("user")
+            ? JSON.parse(localStorage.getItem("user"))
+            : null,
+        catList: [],
     },
     mutations: {
-
-        SET_TOKEN(state, token){
-            state.token = token
+        SET_TOKEN(state, token) {
+            state.token = token;
         },
-        SET_USER(state, user){
-            state.user = user
+        SET_USER(state, user) {
+            state.user = user;
         },
-        SET_LOGOUT(state){
-            state.user = null
-            state.token = null
+        SET_LOGOUT(state) {
+            state.user = null;
+            state.token = null;
         },
-        SET_CHAT(state, data){
-            state.catList = data
-        }
-
+        SET_CHAT(state, data) {
+            state.catList = data;
+        },
     },
-    
+
     actions: {
-        async logout (context){
-            console.log('logout');
-            
+        async logout(context) {
+            console.log("logout");
+
             try {
-                
-            const response = await fetch('/api/logout', {
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json",
-                    Accept: "application/json",
-                    Authorization : `Bearer ${context.state.token}`
+                const response = await fetch("/api/logout", {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json",
+                        Accept: "application/json",
+                        Authorization: `Bearer ${context.state.token}`,
+                    },
+                });
+                if (response.ok) {
+                    context.commit("SET_LOGOUT");
+                    localStorage.removeItem("authToken");
+                    localStorage.removeItem("user");
 
-                  },
-
-            })
-            if(response.ok){
-                context.commit('SET_LOGOUT')
-                localStorage.removeItem('authToken')
-                localStorage.removeItem('user')
-
-                return {status : 200}
-            }else{
-                return {status : 400}
-
-            }
+                    return { status: 200 };
+                } else {
+                    return { status: 400 };
+                }
             } catch (error) {
-                return {status : 400}
-
+                return { status: 400 };
             }
-            
-
-
         },
-        async login (context,{email, password}){
-            
+        async login(context, { email, password }) {
             try {
-                
                 const response = await fetch("/api/login", {
                     method: "POST",
                     headers: {
@@ -78,33 +70,28 @@ export default new Vuex.Store({
                     credentials: "include",
                 });
 
-                if(response.ok){
-
+                if (response.ok) {
                     const data = await response.json();
-                    
-                    context.commit('SET_TOKEN', data.access_token);
-                    
-                    context.commit('SET_USER', data.user);
 
-                    localStorage.setItem('authToken', data.access_token);
-                    localStorage.setItem('user', JSON.stringify(data.user));
+                    context.commit("SET_TOKEN", data.access_token);
 
-                    return {status: 200}
-                }
-                else{
-                    return {status: 300}
+                    context.commit("SET_USER", data.user);
+
+                    localStorage.setItem("authToken", data.access_token);
+                    localStorage.setItem("user", JSON.stringify(data.user));
+
+                    return { status: 200 };
+                } else {
+                    return { status: 300 };
                 }
             } catch (error) {
-                return {status: 400}
-                
+                return { status: 400 };
             }
-       
-
         },
-        async fetchCatList(context){
+        async fetchCatList(context) {
             console.log(!context.state.catList?.length);
-            
-            if(!context.state.catList?.length){
+
+            if (!context.state.catList?.length) {
                 try {
                     const response = await fetch("/api/getAllCats", {
                         method: "GET",
@@ -113,34 +100,30 @@ export default new Vuex.Store({
                             Accept: "application/json",
                         },
                     });
-            
+
                     if (response.ok) {
                         const result = await response.json();
-            
-                        context.commit('SET_CHAT', result );
-                        return {status: 200}
-                    } else {
-                        return {status: 400}
-    
-                    }
-                    
-                } catch (error) {
-                    return {status: 400}
-                }
-    
-            }
-        }
-    },
-    getters : {
-        getIsUserLog (state){
-            return !state.token ? true : false
-        },
-        getUserName ( state ){
-            return state.user.name
-        },
-        getCatList(state){
-            return state.catList
-        },
 
-    }
+                        context.commit("SET_CHAT", result);
+                        return { status: 200 };
+                    } else {
+                        return { status: 400 };
+                    }
+                } catch (error) {
+                    return { status: 400 };
+                }
+            }
+        },
+    },
+    getters: {
+        getIsUserLog(state) {
+            return !state.token ? true : false;
+        },
+        getUserName(state) {
+            return state.user?.name;
+        },
+        getCatList(state) {
+            return state.catList;
+        },
+    },
 });

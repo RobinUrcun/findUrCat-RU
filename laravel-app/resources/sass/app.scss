@@ -29,10 +29,13 @@
 // DEPARTEMENTS PAGE //
 @import "./pages/departementsPage/departementsPage";
 
+// SEARCH CAT //
+@import "./pages/searchCat/searchCat";
+
 // COMPONENTS //
 @import "./components/welcomText/welcomText";
 @import "./components/inputs/inputs";
 @import "./components/cards/catCard";
 @import "./components/displayView/displayView";
 @import "./components/searchBar/searchBar";
-
+@import "./components/buttons/buttons";

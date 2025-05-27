@@ -130,11 +130,10 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
     fetchData: function fetchData(e) {
       var _this = this;
       return _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-        var fetchData;
         return _regeneratorRuntime().wrap(function _callee$(_context) {
           while (1) switch (_context.prev = _context.next) {
             case 0:
-              fetchData = fetch("/api/signup", {
+              fetch("/api/signup", {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",
@@ -257,6 +256,27 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      searchLinks: [{
+        title: "Chats perdus",
+        href: "/chatsPerdus"
+      }, {
+        title: "Rechercher un chat",
+        href: "/rechercher_un_chat"
+      }, {
+        title: "Rechercher par département",
+        href: "/departements"
+      }],
+      authLinks: [{
+        title: "Se connecter",
+        href: "/connection"
+      }, {
+        title: "Créer un compte",
+        href: "/creer_un_compte"
+      }]
+    };
+  },
   components: {
     HeaderLink: _HeaderLink_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
@@ -365,7 +385,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+/* harmony import */ var _searchBar_SearchBar_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../searchBar/SearchBar.vue */ "./resources/js/components/searchBar/SearchBar.vue");
+/* harmony import */ var _data_departementsList_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../data/departementsList.json */ "./resources/js/data/departementsList.json");
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      switcher: {
+        name: false,
+        isLost: false,
+        departement: false,
+        color: false
+      },
+      departements: _data_departementsList_json__WEBPACK_IMPORTED_MODULE_1__
+    };
+  },
+  components: {
+    SearchBar: _searchBar_SearchBar_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  methods: {
+    changeDepartement: function changeDepartement() {}
+  }
+});
 
 /***/ }),
 
@@ -917,7 +959,9 @@ var render = function render() {
       type: "password",
       label: "Confirmer Mot de passe :"
     }
-  }), _vm._v(" "), _c("button", [_vm._v("Créer un compte")])], 1)]);
+  }), _vm._v(" "), _c("button", {
+    staticClass: "mainButton"
+  }, [_vm._v("Créer un compte")])], 1)]);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -960,7 +1004,9 @@ var render = function render() {
       type: "password",
       label: "Mot de passe :"
     }
-  }), _vm._v(" "), _c("button", [_vm._v("Créer un compte")])], 1)]);
+  }), _vm._v(" "), _c("button", {
+    staticClass: "mainButton"
+  }, [_vm._v("Créer un compte")])], 1)]);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -998,37 +1044,64 @@ var render = function render() {
       href: "/",
       title: "Accueil"
     }
-  }), _vm._v(" "), _c("HeaderLink", {
+  }), _vm._v(" "), _c("v-menu", {
     attrs: {
-      href: "/chatsPerdus",
-      title: "Chats perdus"
-    }
-  }), _vm._v(" "), _c("HeaderLink", {
-    attrs: {
-      href: "/rechercher_un_chat",
-      title: "Rechercher un chat"
-    }
-  }), _vm._v(" "), _c("HeaderLink", {
-    attrs: {
-      href: "/departements",
-      title: "Recherche par département"
-    }
-  }), _vm._v(" "), _c("HeaderLink", {
+      "offset-y": ""
+    },
+    scopedSlots: _vm._u([{
+      key: "activator",
+      fn: function fn(_ref) {
+        var on = _ref.on,
+          attrs = _ref.attrs;
+        return [_c("v-btn", _vm._g(_vm._b({
+          attrs: {
+            elevation: "0",
+            color: "transparent",
+            dark: ""
+          }
+        }, "v-btn", attrs, false), on), [_vm._v("\n                    Recherche\n                ")])];
+      }
+    }])
+  }, [_vm._v(" "), _c("v-list", _vm._l(_vm.searchLinks, function (link, index) {
+    return _c("v-list-item", {
+      key: index
+    }, [_c("v-list-item-title", [_c("a", {
+      attrs: {
+        href: link.href
+      }
+    }, [_vm._v(_vm._s(link.title))])])], 1);
+  }), 1)], 1), _vm._v(" "), _c("HeaderLink", {
     attrs: {
       href: "/ajouter_un_chat",
       title: "Ajouter un chat"
     }
-  }), _vm._v(" "), _vm.getIsUserLog ? _c("HeaderLink", {
+  }), _vm._v(" "), _vm.getIsUserLog ? _c("v-menu", {
     attrs: {
-      href: "/connection",
-      title: "Se connecter"
-    }
-  }) : _vm._e(), _vm._v(" "), _vm.getIsUserLog ? _c("HeaderLink", {
-    attrs: {
-      href: "/creer_un_compte",
-      title: "Créer un compte"
-    }
-  }) : _vm._e(), _vm._v(" "), !_vm.getIsUserLog ? _c("div", [_vm._v("Bonjour : " + _vm._s(_vm.getUserName))]) : _vm._e(), _vm._v(" "), !_vm.getIsUserLog ? _c("div", {
+      "offset-y": ""
+    },
+    scopedSlots: _vm._u([{
+      key: "activator",
+      fn: function fn(_ref2) {
+        var on = _ref2.on,
+          attrs = _ref2.attrs;
+        return [_c("v-btn", _vm._g(_vm._b({
+          attrs: {
+            elevation: "0",
+            color: "transparent",
+            dark: ""
+          }
+        }, "v-btn", attrs, false), on), [_vm._v("\n                    Connection\n                ")])];
+      }
+    }], null, false, 1113479903)
+  }, [_vm._v(" "), _c("v-list", _vm._l(_vm.authLinks, function (link, index) {
+    return _c("v-list-item", {
+      key: index
+    }, [_c("v-list-item-title", [_c("a", {
+      attrs: {
+        href: link.href
+      }
+    }, [_vm._v(_vm._s(link.title))])])], 1);
+  }), 1)], 1) : _vm._e(), _vm._v(" "), !_vm.getIsUserLog ? _c("div", [_vm._v("Bonjour : " + _vm._s(_vm.getUserName))]) : _vm._e(), _vm._v(" "), !_vm.getIsUserLog ? _c("div", {
     staticClass: "logout",
     on: {
       click: _vm.logoutClient
@@ -1136,23 +1209,78 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("section", [_c("v-switch", {
-    attrs: {
-      label: "Nom :"
-    }
-  }), _vm._v(" "), _c("div", {
-    staticClass: "filterItem"
-  }, [_c("v-text-field", {
-    attrs: {
-      label: "Nom :"
-    }
-  })], 1), _vm._v(" "), _c("div", {
-    staticClass: "filterItem"
+  return _c("div", {
+    staticClass: "filterSection"
+  }, [_c("div", {
+    staticClass: "filterWrapper"
   }, [_c("v-switch", {
     attrs: {
-      label: "Perdu ?"
+      label: "Nom :"
+    },
+    model: {
+      value: _vm.switcher.name,
+      callback: function callback($$v) {
+        _vm.$set(_vm.switcher, "name", $$v);
+      },
+      expression: "switcher.name"
     }
-  })], 1), _vm._v(" "), _c("div", {
+  }), _vm._v(" "), _vm.switcher.name ? _c("div", {
+    staticClass: "filterField"
+  }, [_c("v-text-field", {
+    attrs: {
+      label: "Nom"
+    }
+  })], 1) : _vm._e()], 1), _vm._v(" "), _c("div", {
+    staticClass: "filterWrapper"
+  }, [_c("v-switch", {
+    attrs: {
+      label: "Perdu"
+    },
+    model: {
+      value: _vm.switcher.isLost,
+      callback: function callback($$v) {
+        _vm.$set(_vm.switcher, "isLost", $$v);
+      },
+      expression: "switcher.isLost"
+    }
+  }), _vm._v(" "), _vm.switcher.isLost ? _c("div", {
+    staticClass: "radioBtn"
+  }, [_vm._m(0), _vm._v(" "), _vm._m(1)]) : _vm._e()], 1), _vm._v(" "), _c("div", {
+    staticClass: "filterWrapper"
+  }, [_c("v-switch", {
+    attrs: {
+      label: "Départements"
+    },
+    model: {
+      value: _vm.switcher.departement,
+      callback: function callback($$v) {
+        _vm.$set(_vm.switcher, "departement", $$v);
+      },
+      expression: "switcher.departement"
+    }
+  }), _vm._v(" "), _vm.switcher.departement ? _c("div", {
+    staticClass: "filterItem"
+  }, [_c("SearchBar", {
+    attrs: {
+      departements: _vm.departements
+    },
+    on: {
+      selectedDepartement: _vm.changeDepartement
+    }
+  })], 1) : _vm._e()], 1), _vm._v(" "), _c("div", {
+    staticClass: "filterWrapper"
+  }, [_c("v-switch", {
+    attrs: {
+      label: "Couleur"
+    },
+    model: {
+      value: _vm.switcher.color,
+      callback: function callback($$v) {
+        _vm.$set(_vm.switcher, "color", $$v);
+      },
+      expression: "switcher.color"
+    }
+  }), _vm._v(" "), _vm.switcher.color ? _c("div", {
     staticClass: "filterItem"
   }, [_c("v-color-picker", {
     attrs: {
@@ -1161,9 +1289,41 @@ var render = function render() {
       "swatches-max-height": "100",
       "hide-canvas": ""
     }
-  })], 1)], 1);
+  })], 1) : _vm._e()], 1)]);
 };
-var staticRenderFns = [];
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("label", {
+    attrs: {
+      "for": "true"
+    }
+  }, [_c("input", {
+    attrs: {
+      id: "true",
+      type: "radio",
+      name: "isLost"
+    }
+  }), _vm._v(" "), _c("span", {
+    staticClass: "name"
+  }, [_vm._v("Oui")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("label", {
+    attrs: {
+      "for": "false"
+    }
+  }, [_c("input", {
+    attrs: {
+      id: "false",
+      type: "radio",
+      name: "isLost"
+    }
+  }), _vm._v(" "), _c("span", {
+    staticClass: "name"
+  }, [_vm._v("Non")])]);
+}];
 render._withStripped = true;
 
 
@@ -1348,7 +1508,7 @@ var render = function render() {
       label: "Date de naissance :"
     }
   }), _vm._v(" "), _c("RadioInput"), _vm._v(" "), _c("button", {
-    staticClass: "greyBtn"
+    staticClass: "mainButton"
   }, [_vm._v("Ajouter")])], 1)]);
 };
 var staticRenderFns = [];
@@ -68109,8 +68269,8 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   state: {
-    token: localStorage.getItem('authToken') ? localStorage.getItem('authToken') : null,
-    user: localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null,
+    token: localStorage.getItem("authToken") ? localStorage.getItem("authToken") : null,
+    user: localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null,
     catList: []
   },
   mutations: {
@@ -68135,10 +68295,10 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_1_
         return _regeneratorRuntime().wrap(function _callee$(_context) {
           while (1) switch (_context.prev = _context.next) {
             case 0:
-              console.log('logout');
+              console.log("logout");
               _context.prev = 1;
               _context.next = 4;
-              return fetch('/api/logout', {
+              return fetch("/api/logout", {
                 method: "GET",
                 headers: {
                   "Content-Type": "application/json",
@@ -68152,9 +68312,9 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_1_
                 _context.next = 12;
                 break;
               }
-              context.commit('SET_LOGOUT');
-              localStorage.removeItem('authToken');
-              localStorage.removeItem('user');
+              context.commit("SET_LOGOUT");
+              localStorage.removeItem("authToken");
+              localStorage.removeItem("user");
               return _context.abrupt("return", {
                 status: 200
               });
@@ -68209,10 +68369,10 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_1_
               return response.json();
             case 8:
               data = _context2.sent;
-              context.commit('SET_TOKEN', data.access_token);
-              context.commit('SET_USER', data.user);
-              localStorage.setItem('authToken', data.access_token);
-              localStorage.setItem('user', JSON.stringify(data.user));
+              context.commit("SET_TOKEN", data.access_token);
+              context.commit("SET_USER", data.user);
+              localStorage.setItem("authToken", data.access_token);
+              localStorage.setItem("user", JSON.stringify(data.user));
               return _context2.abrupt("return", {
                 status: 200
               });
@@ -68267,7 +68427,7 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_1_
               return response.json();
             case 9:
               result = _context3.sent;
-              context.commit('SET_CHAT', result);
+              context.commit("SET_CHAT", result);
               return _context3.abrupt("return", {
                 status: 200
               });
@@ -68297,7 +68457,8 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_1_
       return !state.token ? true : false;
     },
     getUserName: function getUserName(state) {
-      return state.user.name;
+      var _state$user;
+      return (_state$user = state.user) === null || _state$user === void 0 ? void 0 : _state$user.name;
     },
     getCatList: function getCatList(state) {
       return state.catList;
