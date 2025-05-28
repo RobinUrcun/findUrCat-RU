@@ -21,4 +21,6 @@ Route::controller(DisplayCat::class)->group(function () {
     Route::get('/getAllCats/{departement}', "getAllCatsByDepartement");
 
     Route::get('/getAllCats', "getAllCats");
+
+    Route::get('/getCatsWithFilter', "getCatsWithFilter");
 });

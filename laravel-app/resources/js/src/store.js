@@ -12,6 +12,7 @@ export default new Vuex.Store({
             ? JSON.parse(localStorage.getItem("user"))
             : null,
         catList: [],
+        catFilterList : []
     },
     mutations: {
         SET_TOKEN(state, token) {
@@ -27,6 +28,9 @@ export default new Vuex.Store({
         SET_CHAT(state, data) {
             state.catList = data;
         },
+        SET_CAT_FILTER_LIST(state, data){
+            state.catFilterList = data
+        }
     },
 
     actions: {
@@ -114,6 +118,43 @@ export default new Vuex.Store({
                 }
             }
         },
+        async fetchCatWithFilter(context, {name, isLost, departement, color}){
+           try {
+            const urlParams = new URLSearchParams();
+
+            if(name){
+                urlParams.append('name', name)
+            };
+            if(isLost !== null){
+                urlParams.append('is_lost', isLost)
+            }
+            if(departement){
+                console.log('addDepartement');
+                
+                urlParams.append('departement', departement)
+            }; 
+            if(color){
+                urlParams.append('color', color)
+            }
+
+            const response = await fetch(`/api/getCatsWithFilter/?${urlParams.toString()}`)
+
+            if(response.ok){
+                const data = await response.json()
+                console.log(data);
+                this.commit('SET_CAT_FILTER_LIST', data)
+
+                return {status: 200}
+                
+            }else{
+                return {status: 400}
+            }
+           } catch (error) {
+            
+            return {status: 400}
+
+           }
+        }
     },
     getters: {
         getIsUserLog(state) {
@@ -125,5 +166,8 @@ export default new Vuex.Store({
         getCatList(state) {
             return state.catList;
         },
+        getCatFilterList(state){
+            return state.catFilterList
+        }
     },
 });

@@ -1,6 +1,6 @@
 <template>
   <div class="headerLink">
-    <router-link :to="href">{{ title }}</router-link>
+    <router-link class="btn" :to="href">{{ title }}</router-link>
   </div>
 </template>
 
@@ -12,3 +12,4 @@ export default {
   },
 };
 </script>
+
